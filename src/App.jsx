@@ -1,9 +1,11 @@
-import MainGrid from "./components/layout"
+import MainGrid from "./components/layout";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function App() {
   return (
-    <>
-      <MainGrid></MainGrid>
-    </>
-  )
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <MainGrid />
+    </LocalizationProvider>
+  );
 }
