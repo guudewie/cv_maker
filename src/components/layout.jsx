@@ -8,15 +8,17 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import CV from "./cv";
-import personalInfoSample from "../data/personalInfoSample";
+import personalInfoSample from "../data/personalInfoData";
 import PersonalDetails from "./personalInfo";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Education from "./education";
+import { v4 as uuidv4 } from "uuid";
 
 export default function MainGrid() {
   let [personalInfo, setPersonalInfo] = useState({ personalInfoSample });
-  let [education, setEducation] = useState(1);
+  let [education, setEducation] = useState([]);
+  let [activeEdu, setActiveEdu] = useState([]);
 
   function handleChange(e, info) {
     const value = e.target.value;
@@ -27,7 +29,36 @@ export default function MainGrid() {
   }
 
   function handleAddEducation() {
-    setEducation(education + 1);
+    setEducation((prevEducation) => [
+      ...prevEducation,
+      {
+        key: uuidv4(),
+        school: "",
+        degree: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+      },
+    ]);
+  }
+
+  function handleChangeEducation(e, key, info) {
+    const value = e.target.value;
+    setEducation((prevEducation) => {
+      const updatedEducation = prevEducation.map((item) => {
+        if (item.key == key) {
+          return { ...item, [info]: value };
+        }
+        return item;
+      });
+      return updatedEducation;
+    });
+  }
+
+  function handleDeleteEducation(id) {
+    setEducation((prevEducation) => {
+      return prevEducation.filter((education) => education.key !== id);
+    });
   }
 
   return (
@@ -55,13 +86,17 @@ export default function MainGrid() {
               Education
             </AccordionSummary>
             <AccordionDetails>
-              {Array.from({ length: education }).map((_, index) => (
-                <Education
-                  key={index} // Adding a unique key prop is necessary when rendering arrays of components
-                  handleChange={handleChange}
-                />
-              ))}
-
+              {education.length <= 0
+                ? null
+                : education.map((education) => (
+                    <Education
+                      key={education.key}
+                      id={education.key}
+                      handleChange={handleChangeEducation}
+                      educationObject={education}
+                      handleDelete={handleDeleteEducation}
+                    />
+                  ))}
               <Container
                 sx={{
                   padding: "1rem",
@@ -84,7 +119,7 @@ export default function MainGrid() {
         </Grid>
         <Grid item xs={6}>
           <Paper elevation={3}>
-            <CV personalInfo={personalInfo}></CV>
+            <CV personalInfo={personalInfo} education={education}></CV>
           </Paper>
         </Grid>
       </Grid>

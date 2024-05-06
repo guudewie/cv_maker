@@ -6,7 +6,7 @@ export default function PersonalDetails({ handleChange }) {
   return (
     <Container className="personalDetails">
       <Grid container spacing={1}>
-        <Grid fullWidth item xs={6}>
+        <Grid item xs={6}>
           <TextField
             label="First Name"
             key="firstName"
@@ -15,7 +15,7 @@ export default function PersonalDetails({ handleChange }) {
             onChange={(e) => handleChange(e, "firstName")}
           ></TextField>
         </Grid>
-        <Grid fullWidth item xs={6}>
+        <Grid item xs={6}>
           <TextField
             fullWidth
             label="Last Name"
@@ -25,7 +25,7 @@ export default function PersonalDetails({ handleChange }) {
             onChange={(e) => handleChange(e, "lastName")}
           ></TextField>
         </Grid>
-        <Grid fullWidth item xs={8}>
+        <Grid item xs={6}>
           <TextField
             fullWidth
             label="Street"
@@ -35,7 +35,7 @@ export default function PersonalDetails({ handleChange }) {
             onChange={(e) => handleChange(e, "street")}
           ></TextField>
         </Grid>
-        <Grid fullWidth item xs={4}>
+        <Grid item xs={6}>
           <TextField
             label="Number"
             key="number"
@@ -45,7 +45,7 @@ export default function PersonalDetails({ handleChange }) {
             onChange={(e) => handleChange(e, "number")}
           ></TextField>
         </Grid>
-        <Grid fullWidth item xs={6}>
+        <Grid item xs={6}>
           <TextField
             label="City"
             key="city"
@@ -54,7 +54,16 @@ export default function PersonalDetails({ handleChange }) {
             onChange={(e) => handleChange(e, "city")}
           ></TextField>
         </Grid>
-        <Grid fullWidth item xs={6}>
+        <Grid item xs={6}>
+          <TextField
+            label="Post Code"
+            key="postCode"
+            variant="outlined"
+            size="small"
+            onChange={(e) => handleChange(e, "postCode")}
+          ></TextField>
+        </Grid>
+        <Grid item xs={6}>
           <DatePicker
             label="Birthday"
             key="birthdate"

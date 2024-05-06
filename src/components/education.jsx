@@ -5,57 +5,81 @@ import {
   Container,
   Grid,
   TextField,
+  Button,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { DatePicker } from "@mui/x-date-pickers";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function Education(handleChange, educationObject) {
-  let education = educationObject;
+export default function Education({
+  id,
+  handleChange,
+  handleDelete,
+  educationObject,
+}) {
   return (
     <Container className="personalDetails">
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          Personal Details
+          {educationObject.school}
         </AccordionSummary>
         <AccordionDetails>
           <Grid container spacing={1}>
-            <Grid fullWidth item xs={6}>
+            <Grid item xs={6}>
               <TextField
-                label="First Name"
-                key="firstName"
+                label="School"
+                key="school"
                 variant="outlined"
                 size="small"
-                onChange={(e) => handleChange(e, "firstName")}
+                onChange={(e) => handleChange(e, id, "school")}
               ></TextField>
             </Grid>
-            <Grid fullWidth item xs={6}>
+            <Grid item xs={6}>
               <TextField
                 fullWidth
-                label="Last Name"
-                key="lastName"
+                label="Degree"
+                key="degree"
                 variant="outlined"
                 size="small"
-                onChange={(e) => handleChange(e, "lastName")}
+                onChange={(e) => handleChange(e, id, "degree")}
               ></TextField>
             </Grid>
-            <Grid fullWidth item xs={8}>
+            <Grid item xs={6}>
               <TextField
                 fullWidth
-                label="Street"
-                key="street"
+                label="City"
+                key="city"
                 variant="outlined"
                 size="small"
-                onChange={(e) => handleChange(e, "street")}
+                onChange={(e) => handleChange(e, id, "city")}
               ></TextField>
             </Grid>
-            <Grid fullWidth item xs={4}>
-              <TextField
-                label="Number"
-                key="number"
-                type="number"
+            <Grid item xs={6}>
+              <DatePicker
+                label="Start Date"
+                key="startDate"
                 variant="outlined"
                 size="small"
-                onChange={(e) => handleChange(e, "number")}
-              ></TextField>
+                onChange={(e) => handleChange(e, id, "startDate")}
+                slotProps={{ textField: { size: "small" } }}
+              ></DatePicker>
+              <Grid item xs={6}>
+                <DatePicker
+                  label="End Date"
+                  key="endDate"
+                  variant="outlined"
+                  size="small"
+                  onChange={(e) => handleChange(e, id, "endDate")}
+                  slotProps={{ textField: { size: "small" } }}
+                ></DatePicker>
+                <Button
+                  variant="outlined"
+                  startIcon={<DeleteIcon />}
+                  onClick={() => handleDelete(id)}
+                >
+                  Delete
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </AccordionDetails>
