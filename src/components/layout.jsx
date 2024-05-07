@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import CV from "./cv";
-import personalInfoSample from "../data/personalInfoData";
 import PersonalDetails from "./personalInfo";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
@@ -16,8 +15,18 @@ import Education from "./education";
 import Work from "./work";
 import { v4 as uuidv4 } from "uuid";
 
+const personalDetailsObject = {
+  firstName: "",
+  lastName: "",
+  street: "",
+  number: "",
+  postCode: "",
+  city: "",
+  birthDate: "",
+};
+
 export default function MainGrid() {
-  let [personalInfo, setPersonalInfo] = useState({ personalInfoSample });
+  let [personalInfo, setPersonalInfo] = useState(personalDetailsObject);
   let [education, setEducation] = useState([]);
   let [work, setWork] = useState([]);
   let [activeEduKey, setActiveEduKey] = useState();
@@ -25,6 +34,7 @@ export default function MainGrid() {
 
   function handleChange(e, info) {
     const value = e.target.value;
+    console.log("layout state: ", personalInfo);
     setPersonalInfo((prevState) => ({
       ...prevState,
       [info]: value,
@@ -127,7 +137,10 @@ export default function MainGrid() {
               Personal Details
             </AccordionSummary>
             <AccordionDetails>
-              <PersonalDetails handleChange={handleChange}></PersonalDetails>
+              <PersonalDetails
+                handleChange={handleChange}
+                personalInfo={personalInfo}
+              ></PersonalDetails>
             </AccordionDetails>
           </Accordion>
           <Accordion>
@@ -153,9 +166,13 @@ export default function MainGrid() {
                   padding: "1rem",
                   display: "flex",
                   justifyContent: "center",
+                  alignItems: "center",
+                  gap: ".5rem",
                 }}
+                onClick={handleAddEducation}
               >
-                <AddRoundedIcon onClick={handleAddEducation}></AddRoundedIcon>
+                <AddRoundedIcon />
+                Add Education
               </Container>
             </AccordionDetails>
           </Accordion>
@@ -182,9 +199,13 @@ export default function MainGrid() {
                   padding: "1rem",
                   display: "flex",
                   justifyContent: "center",
+                  alignItems: "center",
+                  gap: ".5rem",
                 }}
+                onClick={handleAddWork}
               >
-                <AddRoundedIcon onClick={handleAddWork}></AddRoundedIcon>
+                <AddRoundedIcon />
+                Add work
               </Container>
             </AccordionDetails>
           </Accordion>

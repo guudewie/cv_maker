@@ -2,7 +2,7 @@ import { Container, Grid, TextField } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import "../style/index.css";
 
-export default function PersonalDetails({ handleChange }) {
+export default function PersonalDetails({ handleChange, personalInfo }) {
   return (
     <Container className="personalDetails">
       <Grid container spacing={1}>
@@ -14,6 +14,7 @@ export default function PersonalDetails({ handleChange }) {
             variant="outlined"
             size="small"
             onChange={(e) => handleChange(e, "firstName")}
+            value={personalInfo.firstName}
           ></TextField>
         </Grid>
         <Grid item xs={6}>
@@ -24,6 +25,7 @@ export default function PersonalDetails({ handleChange }) {
             variant="outlined"
             size="small"
             onChange={(e) => handleChange(e, "lastName")}
+            value={personalInfo.lastName}
           ></TextField>
         </Grid>
         <Grid item xs={8}>
@@ -34,6 +36,7 @@ export default function PersonalDetails({ handleChange }) {
             variant="outlined"
             size="small"
             onChange={(e) => handleChange(e, "street")}
+            value={personalInfo.street}
           ></TextField>
         </Grid>
         <Grid item xs={4}>
@@ -45,6 +48,7 @@ export default function PersonalDetails({ handleChange }) {
             variant="outlined"
             size="small"
             onChange={(e) => handleChange(e, "number")}
+            value={personalInfo.number}
           ></TextField>
         </Grid>
         <Grid item xs={6}>
@@ -55,6 +59,7 @@ export default function PersonalDetails({ handleChange }) {
             variant="outlined"
             size="small"
             onChange={(e) => handleChange(e, "city")}
+            value={personalInfo.city}
           ></TextField>
         </Grid>
         <Grid item xs={6}>
@@ -65,6 +70,7 @@ export default function PersonalDetails({ handleChange }) {
             variant="outlined"
             size="small"
             onChange={(e) => handleChange(e, "postCode")}
+            value={personalInfo.postCode}
           ></TextField>
         </Grid>
         <Grid item xs={6}>
