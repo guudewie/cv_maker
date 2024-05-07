@@ -66,6 +66,7 @@ export default function Work({
                 size="small"
                 onChange={(e) => handleChange(e, id, "startDate")}
                 slotProps={{ textField: { size: "small" } }}
+                views={["month", "year"]}
               ></DatePicker>
             </Grid>
             <Grid item xs={6}>
@@ -77,6 +78,7 @@ export default function Work({
                 size="small"
                 onChange={(e) => handleChange(e, id, "endDate")}
                 slotProps={{ textField: { size: "small" } }}
+                views={["month", "year"]}
               ></DatePicker>
             </Grid>
             <Grid item xs={6}>

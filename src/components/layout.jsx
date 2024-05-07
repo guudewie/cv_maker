@@ -14,6 +14,7 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Education from "./education";
 import Work from "./work";
 import { v4 as uuidv4 } from "uuid";
+import moment from "moment";
 
 const personalDetailsObject = {
   firstName: "",
@@ -83,7 +84,9 @@ export default function MainGrid() {
   }
 
   function handleChangeEducation(e, key, info) {
-    const value = e.target.value;
+    let value;
+    if (e.$d) value = moment(e.$d).format("MMM YYYY");
+    else value = e.target.value;
     setEducation((prevEducation) => {
       const updatedEducation = prevEducation.map((item) => {
         if (item.key == key) {
@@ -96,7 +99,9 @@ export default function MainGrid() {
   }
 
   function handleChangeWork(e, key, info) {
-    const value = e.target.value;
+    let value;
+    if (e.$d) value = moment(e.$d).format("MMM YYYY");
+    else value = e.target.value;
     setWork((prevWork) => {
       const updatedWork = prevWork.map((item) => {
         if (item.key == key) {

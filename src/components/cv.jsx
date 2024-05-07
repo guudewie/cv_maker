@@ -20,11 +20,52 @@ export default function CV({ personalInfo, education, work }) {
       </div>
       <div className="cv-main">
         <div className="cv-education">
-          <Divider textAlign="left">Education</Divider>
-          <div className="cv-education-item"></div>
+          <Divider textAlign="left">
+            <b>Education</b>
+          </Divider>
+          {education &&
+            education.map((education) => {
+              return (
+                <>
+                  <div className="cv-item">
+                    <div className="cv-item-top">
+                      <div className="cv-item-name">{education.school}</div>
+                      <div className="cv-item-city">{education.city}</div>
+                    </div>
+                    <div className="cv-item-bottom">
+                      <div className="cv-item-title">{education.degree}</div>
+                      <div className="cv-item-dates">
+                        {education.startDate + " – " + education.endDate}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
         </div>
         <div className="cv-work">
-          <Divider textAlign="left">Work Experience</Divider>
+          <Divider textAlign="left">
+            <b>Work Experience</b>
+          </Divider>
+          {work &&
+            work.map((work) => {
+              return (
+                <>
+                  <div className="cv-item">
+                    <div className="cv-item-top">
+                      <div className="cv-item-name">{work.company}</div>
+                      <div className="cv-item-city">{work.city}</div>
+                    </div>
+                    <div className="cv-item-bottom">
+                      <div className="cv-item-title">{work.position}</div>
+                      <div className="cv-item-dates">
+                        {work.startDate + " – " + work.endDate}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
         </div>
       </div>
       {education.length > 0

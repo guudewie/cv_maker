@@ -32,6 +32,7 @@ html {
     justify-content: flex-start;
     flex-direction: column;
     height: 100%;
+    padding: 1rem;
 }
 
 .cv-header {
@@ -68,3 +69,23 @@ html {
     height: 100%;
 }
 
+.cv-item {
+    display: flex;
+    flex-direction: column;
+    gap: .15rem
+}
+
+.cv-item-top,
+.cv-item-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cv-item-top {
+    font-weight: bold;
+}
+
+.cv-item-bottom {
+    font-style: italic;
+}
