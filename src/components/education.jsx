@@ -14,14 +14,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 export default function Education({
   id,
   handleChange,
+  handleExpand,
   handleDelete,
   educationObject,
+  expanded,
 }) {
   return (
     <Container className="personalDetails">
-      <Accordion>
+      <Accordion expanded={expanded} onChange={() => handleExpand(id)}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          {educationObject.school}
+          {educationObject.school ? educationObject.school : "Educational Step"}
         </AccordionSummary>
         <AccordionDetails>
           <Grid container spacing={1}>

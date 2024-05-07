@@ -18,7 +18,7 @@ import { v4 as uuidv4 } from "uuid";
 export default function MainGrid() {
   let [personalInfo, setPersonalInfo] = useState({ personalInfoSample });
   let [education, setEducation] = useState([]);
-  let [activeEdu, setActiveEdu] = useState([]);
+  let [activeEduKey, setActiveEduKey] = useState();
 
   function handleChange(e, info) {
     const value = e.target.value;
@@ -28,11 +28,17 @@ export default function MainGrid() {
     }));
   }
 
+  function handleActiveEducation(id) {
+    if (activeEduKey == id) setActiveEduKey(0);
+    else setActiveEduKey(id);
+  }
+
   function handleAddEducation() {
+    let key = uuidv4();
     setEducation((prevEducation) => [
       ...prevEducation,
       {
-        key: uuidv4(),
+        key: key,
         school: "",
         degree: "",
         city: "",
@@ -40,6 +46,7 @@ export default function MainGrid() {
         endDate: "",
       },
     ]);
+    handleActiveEducation(key);
   }
 
   function handleChangeEducation(e, key, info) {
@@ -93,8 +100,10 @@ export default function MainGrid() {
                       key={education.key}
                       id={education.key}
                       handleChange={handleChangeEducation}
+                      handleExpand={handleActiveEducation}
                       educationObject={education}
                       handleDelete={handleDeleteEducation}
+                      expanded={activeEduKey === education.key}
                     />
                   ))}
               <Container
