@@ -27,8 +27,9 @@ export default function Education({
         </AccordionSummary>
         <AccordionDetails>
           <Grid container spacing={1}>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <TextField
+                sx={{ width: "100%" }}
                 label="School"
                 key="school"
                 variant="outlined"
@@ -36,7 +37,7 @@ export default function Education({
                 onChange={(e) => handleChange(e, id, "school")}
               ></TextField>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <TextField
                 fullWidth
                 label="Degree"
@@ -46,7 +47,7 @@ export default function Education({
                 onChange={(e) => handleChange(e, id, "degree")}
               ></TextField>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <TextField
                 fullWidth
                 label="City"
@@ -58,6 +59,7 @@ export default function Education({
             </Grid>
             <Grid item xs={6}>
               <DatePicker
+                sx={{ width: "100%" }}
                 label="Start Date"
                 key="startDate"
                 variant="outlined"
@@ -65,23 +67,26 @@ export default function Education({
                 onChange={(e) => handleChange(e, id, "startDate")}
                 slotProps={{ textField: { size: "small" } }}
               ></DatePicker>
-              <Grid item xs={6}>
-                <DatePicker
-                  label="End Date"
-                  key="endDate"
-                  variant="outlined"
-                  size="small"
-                  onChange={(e) => handleChange(e, id, "endDate")}
-                  slotProps={{ textField: { size: "small" } }}
-                ></DatePicker>
-                <Button
-                  variant="outlined"
-                  startIcon={<DeleteIcon />}
-                  onClick={() => handleDelete(id)}
-                >
-                  Delete
-                </Button>
-              </Grid>
+            </Grid>
+            <Grid item xs={6}>
+              <DatePicker
+                sx={{ width: "100%" }}
+                label="End Date"
+                key="endDate"
+                variant="outlined"
+                size="small"
+                onChange={(e) => handleChange(e, id, "endDate")}
+                slotProps={{ textField: { size: "small" } }}
+              ></DatePicker>
+            </Grid>
+            <Grid item xs={6}>
+              <Button
+                variant="outlined"
+                startIcon={<DeleteIcon />}
+                onClick={() => handleDelete(id)}
+              >
+                Delete
+              </Button>
             </Grid>
           </Grid>
         </AccordionDetails>
