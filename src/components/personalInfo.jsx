@@ -8,6 +8,7 @@ export default function PersonalDetails({ handleChange }) {
       <Grid container spacing={1}>
         <Grid item xs={6}>
           <TextField
+            sx={{ width: "100%" }}
             label="First Name"
             key="firstName"
             variant="outlined"
@@ -17,7 +18,7 @@ export default function PersonalDetails({ handleChange }) {
         </Grid>
         <Grid item xs={6}>
           <TextField
-            fullWidth
+            sx={{ width: "100%" }}
             label="Last Name"
             key="lastName"
             variant="outlined"
@@ -25,9 +26,9 @@ export default function PersonalDetails({ handleChange }) {
             onChange={(e) => handleChange(e, "lastName")}
           ></TextField>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={8}>
           <TextField
-            fullWidth
+            sx={{ width: "100%" }}
             label="Street"
             key="street"
             variant="outlined"
@@ -35,8 +36,9 @@ export default function PersonalDetails({ handleChange }) {
             onChange={(e) => handleChange(e, "street")}
           ></TextField>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <TextField
+            sx={{ width: "100%" }}
             label="Number"
             key="number"
             type="number"
@@ -47,6 +49,7 @@ export default function PersonalDetails({ handleChange }) {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            sx={{ width: "100%" }}
             label="City"
             key="city"
             variant="outlined"
@@ -56,6 +59,7 @@ export default function PersonalDetails({ handleChange }) {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            sx={{ width: "100%" }}
             label="Post Code"
             key="postCode"
             variant="outlined"
@@ -65,6 +69,7 @@ export default function PersonalDetails({ handleChange }) {
         </Grid>
         <Grid item xs={6}>
           <DatePicker
+            sx={{ width: "100%" }}
             label="Birthday"
             key="birthdate"
             variant="outlined"
