@@ -1,5 +1,4 @@
 import { Container, Grid, TextField } from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers";
 import "../style/index.css";
 
 export default function PersonalDetails({ handleChange, personalInfo }) {
@@ -73,16 +72,17 @@ export default function PersonalDetails({ handleChange, personalInfo }) {
             value={personalInfo.postCode}
           ></TextField>
         </Grid>
-        <Grid item xs={6}>
-          <DatePicker
+        <Grid item xs={12}>
+          <TextField
             sx={{ width: "100%" }}
-            label="Birthday"
-            key="birthdate"
+            label="Email"
+            key="email"
             variant="outlined"
             size="small"
-            onChange={(e) => handleChange(e, "birthDate")}
+            type="email"
+            onChange={(e) => handleChange(e, "email")}
             slotProps={{ textField: { size: "small" } }}
-          ></DatePicker>
+          ></TextField>
         </Grid>
       </Grid>
     </Container>

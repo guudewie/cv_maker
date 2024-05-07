@@ -15,11 +15,56 @@ html {
     padding: 0;
 }
 
-
 .MuiPaper-root:not(.MuiAccordion-root) {
     height: 100%;
     padding: 1em;
 }
 
+.cv-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
 
+.cv-container-main {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cv-header {
+    flex-direction: column;
+    width: 100%;
+}
+
+.cv-personal-info {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+}
+
+.cv-address,
+.cv-email {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.cv-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cv-education,
+.cv-work,
+.cv-main {
+    width: 100%;
+    height: 100%;
+}
 

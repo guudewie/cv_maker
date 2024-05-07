@@ -22,7 +22,7 @@ const personalDetailsObject = {
   number: "",
   postCode: "",
   city: "",
-  birthDate: "",
+  email: "",
 };
 
 export default function MainGrid() {
@@ -212,7 +212,11 @@ export default function MainGrid() {
         </Grid>
         <Grid item xs={6}>
           <Paper elevation={3}>
-            <CV personalInfo={personalInfo} education={education}></CV>
+            <CV
+              personalInfo={personalInfo}
+              education={education}
+              work={work}
+            ></CV>
           </Paper>
         </Grid>
       </Grid>
