@@ -13,12 +13,15 @@ import PersonalDetails from "./personalInfo";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Education from "./education";
+import Work from "./work";
 import { v4 as uuidv4 } from "uuid";
 
 export default function MainGrid() {
   let [personalInfo, setPersonalInfo] = useState({ personalInfoSample });
   let [education, setEducation] = useState([]);
+  let [work, setWork] = useState([]);
   let [activeEduKey, setActiveEduKey] = useState();
+  let [activeWorkKey, setActiveWorkKey] = useState();
 
   function handleChange(e, info) {
     const value = e.target.value;
@@ -31,6 +34,10 @@ export default function MainGrid() {
   function handleActiveEducation(id) {
     if (activeEduKey == id) setActiveEduKey(0);
     else setActiveEduKey(id);
+  }
+  function handleActiveWork(id) {
+    if (activeWorkKey == id) setActiveWorkKey(0);
+    else setActiveWorkKey(id);
   }
 
   function handleAddEducation() {
@@ -49,6 +56,22 @@ export default function MainGrid() {
     handleActiveEducation(key);
   }
 
+  function handleAddWork() {
+    let key = uuidv4();
+    setWork((prevWork) => [
+      ...prevWork,
+      {
+        key: key,
+        company: "",
+        position: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+      },
+    ]);
+    handleActiveWork(key);
+  }
+
   function handleChangeEducation(e, key, info) {
     const value = e.target.value;
     setEducation((prevEducation) => {
@@ -62,9 +85,28 @@ export default function MainGrid() {
     });
   }
 
+  function handleChangeWork(e, key, info) {
+    const value = e.target.value;
+    setWork((prevWork) => {
+      const updatedWork = prevWork.map((item) => {
+        if (item.key == key) {
+          return { ...item, [info]: value };
+        }
+        return item;
+      });
+      return updatedWork;
+    });
+  }
+
   function handleDeleteEducation(id) {
     setEducation((prevEducation) => {
       return prevEducation.filter((education) => education.key !== id);
+    });
+  }
+
+  function handleDeleteWork(id) {
+    setWork((prevWork) => {
+      return prevWork.filter((work) => work.key !== id);
     });
   }
 
@@ -122,7 +164,28 @@ export default function MainGrid() {
               Work Experience
             </AccordionSummary>
             <AccordionDetails>
-              <div>Leel</div>
+              {work.length <= 0
+                ? null
+                : work.map((work) => (
+                    <Work
+                      key={work.key}
+                      id={work.key}
+                      handleChange={handleChangeWork}
+                      handleExpand={handleActiveWork}
+                      workObject={work}
+                      handleDelete={handleDeleteWork}
+                      expanded={activeWorkKey === work.key}
+                    />
+                  ))}
+              <Container
+                sx={{
+                  padding: "1rem",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <AddRoundedIcon onClick={handleAddWork}></AddRoundedIcon>
+              </Container>
             </AccordionDetails>
           </Accordion>
         </Grid>
