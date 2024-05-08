@@ -20,9 +20,11 @@ export default function CV({ personalInfo, education, work }) {
       </div>
       <div className="cv-main">
         <div className="cv-education">
-          <Divider textAlign="left">
-            <b>Education</b>
-          </Divider>
+          {education.length > 0 && (
+            <Divider textAlign="left">
+              <b>Education</b>
+            </Divider>
+          )}
           {education &&
             education.map((education) => {
               return (
@@ -44,9 +46,11 @@ export default function CV({ personalInfo, education, work }) {
             })}
         </div>
         <div className="cv-work">
-          <Divider textAlign="left">
-            <b>Work Experience</b>
-          </Divider>
+          {work.length > 0 && (
+            <Divider textAlign="left">
+              <b>Work Experience</b>
+            </Divider>
+          )}
           {work &&
             work.map((work) => {
               return (
