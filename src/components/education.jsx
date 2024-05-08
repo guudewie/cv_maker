@@ -10,6 +10,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DatePicker } from "@mui/x-date-pickers";
 import DeleteIcon from "@mui/icons-material/Delete";
+import moment from "moment";
 
 export default function Education({
   id,
@@ -35,6 +36,7 @@ export default function Education({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "school")}
+                value={educationObject.school}
               ></TextField>
             </Grid>
             <Grid item xs={12}>
@@ -45,6 +47,7 @@ export default function Education({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "degree")}
+                value={educationObject.degree}
               ></TextField>
             </Grid>
             <Grid item xs={12}>
@@ -55,6 +58,7 @@ export default function Education({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "city")}
+                value={educationObject.city}
               ></TextField>
             </Grid>
             <Grid item xs={6}>
@@ -67,6 +71,7 @@ export default function Education({
                 onChange={(e) => handleChange(e, id, "startDate")}
                 slotProps={{ textField: { size: "small" } }}
                 views={["month", "year"]}
+                value={moment(educationObject.startDate)}
               ></DatePicker>
             </Grid>
             <Grid item xs={6}>
@@ -79,6 +84,7 @@ export default function Education({
                 onChange={(e) => handleChange(e, id, "endDate")}
                 slotProps={{ textField: { size: "small" } }}
                 views={["month", "year"]}
+                value={moment(educationObject.endDate)}
               ></DatePicker>
             </Grid>
             <Grid item xs={6}>

@@ -72,17 +72,6 @@ export default function CV({ personalInfo, education, work }) {
             })}
         </div>
       </div>
-      {education.length > 0
-        ? education.map((education) => (
-            <div key={education.key}>
-              {education.school}
-              {education.degree}
-              {education.city}
-              {education.startDate}
-              {education.endDate}
-            </div>
-          ))
-        : null}
     </div>
   );
 }

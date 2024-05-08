@@ -69,6 +69,13 @@ html {
     height: 100%;
 }
 
+.cv-work,
+.cv-education{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .cv-item {
     display: flex;
     flex-direction: column;

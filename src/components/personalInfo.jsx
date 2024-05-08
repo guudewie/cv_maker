@@ -82,6 +82,7 @@ export default function PersonalDetails({ handleChange, personalInfo }) {
             type="email"
             onChange={(e) => handleChange(e, "email")}
             slotProps={{ textField: { size: "small" } }}
+            value={personalInfo.email}
           ></TextField>
         </Grid>
       </Grid>

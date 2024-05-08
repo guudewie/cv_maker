@@ -10,6 +10,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DatePicker } from "@mui/x-date-pickers";
 import DeleteIcon from "@mui/icons-material/Delete";
+import moment from "moment";
 
 export default function Work({
   id,
@@ -35,6 +36,7 @@ export default function Work({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "company")}
+                value={workObject.company}
               ></TextField>
             </Grid>
             <Grid item xs={12}>
@@ -45,6 +47,7 @@ export default function Work({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "position")}
+                value={workObject.position}
               ></TextField>
             </Grid>
             <Grid item xs={12}>
@@ -55,6 +58,7 @@ export default function Work({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "city")}
+                value={workObject.city}
               ></TextField>
             </Grid>
             <Grid item xs={6}>
@@ -67,6 +71,7 @@ export default function Work({
                 onChange={(e) => handleChange(e, id, "startDate")}
                 slotProps={{ textField: { size: "small" } }}
                 views={["month", "year"]}
+                value={moment(workObject.startDate)}
               ></DatePicker>
             </Grid>
             <Grid item xs={6}>
@@ -79,6 +84,7 @@ export default function Work({
                 onChange={(e) => handleChange(e, id, "endDate")}
                 slotProps={{ textField: { size: "small" } }}
                 views={["month", "year"]}
+                value={moment(workObject.endDate)}
               ></DatePicker>
             </Grid>
             <Grid item xs={6}>

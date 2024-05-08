@@ -29,12 +29,71 @@ const personalDetailsObject = {
   email: "",
 };
 
+const personalDetailsSampleObject = {
+  key: uuidv4(),
+  firstName: "Max",
+  lastName: "Musterman",
+  street: "Hochstrasse",
+  number: "4",
+  postCode: "8673",
+  city: "Berlin",
+  email: "musterman@muster.man",
+};
+
+const workSample1 = {
+  key: uuidv4(),
+  company: "Green Junktion Group",
+  position: "Intern",
+  city: "Boston, MA",
+  startDate: "Nov 2022",
+  endDate: "Nov 2024",
+};
+
+const workSample2 = {
+  key: uuidv4(),
+  company: "Black Mesa Labs",
+  position: "Associate Manager",
+  city: "New York, NY",
+  startDate: "Nov 2022",
+  endDate: "Nov 2024",
+};
+
+const educationSample1 = {
+  key: uuidv4(),
+  school: "Karakorum University",
+  degree: "Middle East Studies",
+  city: "Islamabad, PA",
+  startDate: "Nov 2022",
+  endDate: "Nov 2024",
+};
+
+const educationSample2 = {
+  key: uuidv4(),
+  school: "Berlin School of Design",
+  degree: "UI/UX Design",
+  city: "Berlin, DE",
+  startDate: "Nov 2022",
+  endDate: "Nov 2024",
+};
+
 export default function MainGrid() {
   let [personalInfo, setPersonalInfo] = useState(personalDetailsObject);
   let [education, setEducation] = useState([]);
   let [work, setWork] = useState([]);
   let [activeEduKey, setActiveEduKey] = useState();
   let [activeWorkKey, setActiveWorkKey] = useState();
+
+  function handleLoadData() {
+    setPersonalInfo(personalDetailsSampleObject);
+    setWork([workSample1, workSample2]);
+    setEducation([educationSample1, educationSample2]);
+  }
+
+  function handleClearData() {
+    setPersonalInfo(personalDetailsObject);
+    setEducation([]);
+    setWork([]);
+  }
 
   function handleChange(e, info) {
     const value = e.target.value;
@@ -146,10 +205,18 @@ export default function MainGrid() {
               <h2>Fill in Details Below</h2>
             </div>
             <div className="main-header-buttons">
-              <Button startIcon={<ClearIcon />} color="error">
+              <Button
+                startIcon={<ClearIcon />}
+                color="error"
+                onClick={handleClearData}
+              >
                 Clear Content
               </Button>
-              <Button startIcon={<SyncIcon />} color="success">
+              <Button
+                startIcon={<SyncIcon />}
+                color="success"
+                onClick={handleLoadData}
+              >
                 Load Content
               </Button>
             </div>
