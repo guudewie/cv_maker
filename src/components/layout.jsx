@@ -2,6 +2,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Button,
   Container,
   Grid,
   Paper,
@@ -11,6 +12,8 @@ import CV from "./cv";
 import PersonalDetails from "./personalInfo";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import ClearIcon from "@mui/icons-material/Clear";
+import SyncIcon from "@mui/icons-material/Sync";
 import Education from "./education";
 import Work from "./work";
 import { v4 as uuidv4 } from "uuid";
@@ -138,7 +141,19 @@ export default function MainGrid() {
         alignItems="stretch"
       >
         <Grid item xs={6} padding={"3rem"}>
-          <h2>Fill in Details Below</h2>
+          <div className="main-header">
+            <div className="main-header-text">
+              <h2>Fill in Details Below</h2>
+            </div>
+            <div className="main-header-buttons">
+              <Button startIcon={<ClearIcon />} color="error">
+                Clear Content
+              </Button>
+              <Button startIcon={<SyncIcon />} color="success">
+                Load Content
+              </Button>
+            </div>
+          </div>
           <Accordion defaultExpanded>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               Personal Details
