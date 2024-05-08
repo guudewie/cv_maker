@@ -85,6 +85,7 @@ export default function MainGrid() {
 
   function handleChangeEducation(e, key, info) {
     let value;
+    //access date if incoming target is a date picker, take value if otherwise
     if (e.$d) value = moment(e.$d).format("MMM YYYY");
     else value = e.target.value;
     setEducation((prevEducation) => {
@@ -100,6 +101,7 @@ export default function MainGrid() {
 
   function handleChangeWork(e, key, info) {
     let value;
+    //access date if incoming target is a date picker, take value if otherwise
     if (e.$d) value = moment(e.$d).format("MMM YYYY");
     else value = e.target.value;
     setWork((prevWork) => {
