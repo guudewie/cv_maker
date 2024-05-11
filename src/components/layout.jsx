@@ -18,6 +18,9 @@ import Education from "./education";
 import Work from "./work";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
+import educationData from "../data/educationData";
+import personalDetailsSampleObject from "../data/personalInfoData";
+import workData from "../data/workData";
 
 const personalDetailsObject = {
   firstName: "",
@@ -29,53 +32,6 @@ const personalDetailsObject = {
   email: "",
 };
 
-const personalDetailsSampleObject = {
-  key: uuidv4(),
-  firstName: "Max",
-  lastName: "Musterman",
-  street: "Hochstrasse",
-  number: "4",
-  postCode: "8673",
-  city: "Berlin",
-  email: "musterman@muster.man",
-};
-
-const workSample1 = {
-  key: uuidv4(),
-  company: "Green Junktion Group",
-  position: "Intern",
-  city: "Boston, MA",
-  startDate: "Nov 2022",
-  endDate: "Nov 2024",
-};
-
-const workSample2 = {
-  key: uuidv4(),
-  company: "Black Mesa Labs",
-  position: "Associate Manager",
-  city: "New York, NY",
-  startDate: "Nov 2022",
-  endDate: "Nov 2024",
-};
-
-const educationSample1 = {
-  key: uuidv4(),
-  school: "Karakorum University",
-  degree: "Middle East Studies",
-  city: "Islamabad, PA",
-  startDate: "Nov 2022",
-  endDate: "Nov 2024",
-};
-
-const educationSample2 = {
-  key: uuidv4(),
-  school: "Berlin School of Design",
-  degree: "UI/UX Design",
-  city: "Berlin, DE",
-  startDate: "Nov 2022",
-  endDate: "Nov 2024",
-};
-
 export default function MainGrid() {
   let [personalInfo, setPersonalInfo] = useState(personalDetailsObject);
   let [education, setEducation] = useState([]);
@@ -85,8 +41,8 @@ export default function MainGrid() {
 
   function handleLoadData() {
     setPersonalInfo(personalDetailsSampleObject);
-    setWork([workSample1, workSample2]);
-    setEducation([educationSample1, educationSample2]);
+    setWork([workData.sample1, workData.sample2]);
+    setEducation([educationData.sample1, educationData.sample2]);
   }
 
   function handleClearData() {
@@ -306,6 +262,7 @@ export default function MainGrid() {
                 personalInfo={personalInfo}
                 education={education}
                 work={work}
+                key={uuidv4()}
               />
             </Paper>
           </div>
