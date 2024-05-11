@@ -196,9 +196,9 @@ export default function MainGrid() {
         display={"flex"}
         padding={"2rem"}
         spacing={3}
-        height={"100vh"}
+        height={"90vh"}
       >
-        <Grid item xs="6" padding={"3rem"}>
+        <Grid item xs="6" padding={"3rem"} overflow={"scroll"} height={"100vh"}>
           <div className="main-header">
             <div className="main-header-text">
               <h2>Fill in Details Below</h2>
@@ -299,7 +299,7 @@ export default function MainGrid() {
           </Accordion>
         </Grid>
         <Grid item xs={6} style={{ display: "flex" }}>
-          <div style={{ flex: "1", aspectRatio: "1 / 1.41", height: "100vh" }}>
+          <div style={{ flex: "1", aspectRatio: "1 / 1.41", height: "90vh" }}>
             <Paper elevation={3} style={{ height: "100%" }}>
               <CV
                 className="cv-comp"
