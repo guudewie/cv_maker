@@ -69,7 +69,7 @@ export default function Work({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "startDate")}
-                slotProps={{ textField: { size: "small" } }}
+                slotprops={{ textField: { size: "small" } }}
                 views={["month", "year"]}
                 value={moment(workObject.startDate)}
               ></DatePicker>
@@ -82,7 +82,7 @@ export default function Work({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "endDate")}
-                slotProps={{ textField: { size: "small" } }}
+                slotprops={{ textField: { size: "small" } }}
                 views={["month", "year"]}
                 value={moment(workObject.endDate)}
               ></DatePicker>

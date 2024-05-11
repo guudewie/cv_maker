@@ -69,7 +69,7 @@ export default function Education({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "startDate")}
-                slotProps={{ textField: { size: "small" } }}
+                slotprops={{ textField: { size: "small" } }}
                 views={["month", "year"]}
                 value={moment(educationObject.startDate)}
               ></DatePicker>
@@ -82,7 +82,7 @@ export default function Education({
                 variant="outlined"
                 size="small"
                 onChange={(e) => handleChange(e, id, "endDate")}
-                slotProps={{ textField: { size: "small" } }}
+                slotprops={{ textField: { size: "small" } }}
                 views={["month", "year"]}
                 value={moment(educationObject.endDate)}
               ></DatePicker>

@@ -193,13 +193,12 @@ export default function MainGrid() {
     <>
       <Grid
         container
+        display={"flex"}
         padding={"2rem"}
         spacing={3}
         height={"100vh"}
-        justifyContent="space-evenly"
-        alignItems="stretch"
       >
-        <Grid item xs={6} padding={"3rem"}>
+        <Grid item xs="6" padding={"3rem"}>
           <div className="main-header">
             <div className="main-header-text">
               <h2>Fill in Details Below</h2>
@@ -299,14 +298,17 @@ export default function MainGrid() {
             </AccordionDetails>
           </Accordion>
         </Grid>
-        <Grid item xs={6}>
-          <Paper elevation={3}>
-            <CV
-              personalInfo={personalInfo}
-              education={education}
-              work={work}
-            ></CV>
-          </Paper>
+        <Grid item xs={6} style={{ display: "flex" }}>
+          <div style={{ flex: "1", aspectRatio: "1 / 1.41", height: "100vh" }}>
+            <Paper elevation={3} style={{ height: "100%" }}>
+              <CV
+                className="cv-comp"
+                personalInfo={personalInfo}
+                education={education}
+                work={work}
+              />
+            </Paper>
+          </div>
         </Grid>
       </Grid>
     </>
