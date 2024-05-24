@@ -10,7 +10,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DatePicker } from "@mui/x-date-pickers";
 import DeleteIcon from "@mui/icons-material/Delete";
-import moment from "moment";
+import dayjs from "dayjs";
 
 export default function Work({
   id,
@@ -71,7 +71,7 @@ export default function Work({
                 onChange={(e) => handleChange(e, id, "startDate")}
                 slotprops={{ textField: { size: "small" } }}
                 views={["month", "year"]}
-                value={moment(workObject.startDate)}
+                value={dayjs(workObject.startDate)}
               ></DatePicker>
             </Grid>
             <Grid item xs={6}>
@@ -84,7 +84,7 @@ export default function Work({
                 onChange={(e) => handleChange(e, id, "endDate")}
                 slotprops={{ textField: { size: "small" } }}
                 views={["month", "year"]}
-                value={moment(workObject.endDate)}
+                value={dayjs(workObject.endDate)}
               ></DatePicker>
             </Grid>
             <Grid item xs={6}>

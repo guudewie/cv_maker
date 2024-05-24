@@ -53,7 +53,6 @@ export default function MainGrid() {
 
   function handleChange(e, info) {
     const value = e.target.value;
-    console.log("layout state: ", personalInfo);
     setPersonalInfo((prevState) => ({
       ...prevState,
       [info]: value,

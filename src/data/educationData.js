@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 
 const sample1 = {
@@ -5,8 +6,8 @@ const sample1 = {
   school: "Karakorum University",
   degree: "Middle East Studies",
   city: "Islamabad, PA",
-  startDate: "Sep 2019",
-  endDate: "Jan 2023",
+  startDate: dayjs(),
+  endDate: dayjs(),
 };
 
 const sample2 = {
@@ -14,8 +15,8 @@ const sample2 = {
   school: "Berlin School of Design",
   degree: "UI/UX Design",
   city: "Berlin, DE",
-  startDate: "Okt 2022",
-  endDate: "Jul 2024",
+  startDate: dayjs(),
+  endDate: dayjs(),
 };
 
 export default { sample1, sample2 };

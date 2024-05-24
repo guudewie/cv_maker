@@ -1,4 +1,5 @@
 import { Divider } from "@mui/material";
+import dayjs from "dayjs";
 
 export default function CV({ personalInfo, education, work }) {
   const address =
@@ -8,7 +9,13 @@ export default function CV({ personalInfo, education, work }) {
     (personalInfo.postCode || personalInfo.city
       ? ", " + personalInfo.postCode + " " + personalInfo.city
       : "");
+
   const fullName = personalInfo.firstName + " " + personalInfo.lastName;
+
+  function formatDate(date) {
+    return dayjs(date).format("MMM YYYY");
+  }
+
   return (
     <div className="cv-container-main">
       <div className="cv-header">
@@ -37,7 +44,9 @@ export default function CV({ personalInfo, education, work }) {
                     <div className="cv-item-bottom">
                       <div className="cv-item-title">{education.degree}</div>
                       <div className="cv-item-dates">
-                        {education.startDate + " – " + education.endDate}
+                        {formatDate(education.startDate) +
+                          " – " +
+                          formatDate(education.endDate)}
                       </div>
                     </div>
                   </div>
@@ -63,7 +72,9 @@ export default function CV({ personalInfo, education, work }) {
                     <div className="cv-item-bottom">
                       <div className="cv-item-title">{work.position}</div>
                       <div className="cv-item-dates">
-                        {work.startDate + " – " + work.endDate}
+                        {formatDate(work.startDate) +
+                          " – " +
+                          formatDate(work.endDate)}
                       </div>
                     </div>
                   </div>
